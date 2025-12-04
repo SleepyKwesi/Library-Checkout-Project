@@ -1,0 +1,34 @@
+Library checkout project 
+
+- [ ] Create File(saves and loads book info from file)
+- [ ] Import scanner
+
+Parent class: Books
+BOOK TITLES	AUTHOR:	GENRE:
+Shining, IT, The Long Walk	Steven King 	Horror
+Harry Potter, Fantastic Beast, Where to find them 	J.K. Rowling 	Fantasy
+		
+Hamlet, Romeo & Juliette, MId Summer Night Dream	Shakespear	Poetry
+Cat & The Hat, The Lorax, Green Eggs & Ham	Dr.seuss	Kids
+
+
+- [ ] String Author
+- [ ] String Title
+- [ ] String Genre
+
+Methods:
+- [ ] Call for author/genre (If, else code)
+- [ ] Boolean for availability (return isavailable(){   )  
+- [ ] Void for checkout (if else statement, If available print 
+- [ ] Void for returnbook 
+
+Main:
+- [ ] Print out “welcome B&Z Library”
+- [ ] Ask are you here for return(Y/N option) if no skip 
+- [ ] Print “Authors available” give list of authors
+- [ ] Import user choice from author list 
+- [ ] Give user list of books from author 
+- [ ] Choose book from author 
+- [ ] Check availability of chosen book
+- [ ] Call method If not available print book is not available 
+- [ ] If book is available give option would you like to check out   
