@@ -1,1 +1,113 @@
 
+import java.util.Scanner;
+class Book{
+    String title;
+    String author;
+    String genre;
+    Boolean available;
+
+    Book(String title, String author, String genre) {
+        this.title = title;
+        this.author = author;
+        this.genre = genre;
+        this.available = true;
+
+    }
+   void checkOut() {
+if (available) {
+    available = false;
+    System.out.println(title + " has been successfully Checked out");
+}
+else {
+    System.out.println("This book has already been checked out");
+}
+    }
+    void returnBook(){
+      available = true;
+      System.out.println(title+" Has been returned. ");
+
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Book[] library = {
+                new Book("1984", "George Orwell", "Dystopian"),
+                new Book("Harry Potter", "J.k Rowling", "Fantasy"),
+                new Book("The Cat in the hat ", "Dr.Seuss", "Kids"),
+                new Book("Hamlet", "William Shakespeare", "Drama")
+        };
+        int choice;
+        do {
+
+
+
+    System.out.println("==== Library Menu ====\n1. List all books\n2. Check availability\n3. Check out a book\n4. Return a book");
+    System.out.println("0. Exit");
+    System.out.print("Enter choice (0-4): ");
+    choice = sc.nextInt();
+    sc.nextLine();
+    switch (choice) {
+        case 1:
+            System.out.println("\nBooks in Library:");
+            for (Book b : library) {
+                System.out.println("- " + b.title +
+                        " | " + b.author +
+                        " | " + b.genre +
+                        " | " + (b.available ? "Available" : "Checked Out"));
+
+            }
+            break;
+
+        case 2:
+            System.out.print("Enter book title: ");
+            String t = sc.nextLine();
+            boolean found = false;
+            for (Book b : library) {
+                if (b.title.equalsIgnoreCase(t)) {
+                    System.out.println(b.available ?
+                            "This book is available." :
+                            "This book is checked out.");
+                    found = true;
+                }
+            }
+            if (!found) System.out.println("Book not found.");
+            break;
+
+        case 3:
+            System.out.print("Enter title to check out: ");
+            t = sc.nextLine();
+            found = false;
+            for (Book b : library) {
+                if (b.title.equalsIgnoreCase(t)) {
+                    b.checkOut();
+                    found = true;
+                }
+            }
+            if (!found) System.out.println("Book not found.");
+            break;
+
+        case 4:
+            System.out.print("Enter title to return: ");
+            t = sc.nextLine();
+            found = false;
+            for (Book b : library) {
+                if (b.title.equalsIgnoreCase(t)) {
+                    b.returnBook();
+                    found = true;
+                }
+            }
+            if (!found) System.out.println("Book not found.");
+            break;
+
+        case 0:
+            System.out.println("Goodbye!");
+            break;
+
+        default:
+            System.out.println("Invalid choice!");
+    }
+}while (choice != 0);
+    }
+
+}
